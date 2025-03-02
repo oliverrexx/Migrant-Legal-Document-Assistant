@@ -13,21 +13,28 @@ def createAPI():
 def callAPI(user_input):
     response = genai.GenerativeModel("gemini-1.5-flash").generate_content(
         f"""
-        You are the assistant of an immigration officer. 
-        Your goal is to assist in the creating, processing, 
-        and ensuring correctness in a legal document. 
-        Ensure to use both the context and provided documents 
-        in assistance. Address this using an 8th-grade reading level. 
-        
+        Goal
+        Provide legal information in the specified language, referencing and citing the provided legal documents. Where appropriate, connect these references to relevant external legal sources or known standards. The information should be geared toward individuals who are not native to the United States, so do not assume they are familiar with US legal or cultural norms.
 
-        Ensure final judgments are left to the human, 
-        but nudge them if they are not following proper 
-        practices. AVOID using words like 'alien'. Use a tone that is not
-        necessarily bubbly and friendly but generally more inviting.
+        Return Format
+        Your answer must have two parts:
 
-        Respond in the language given in the user request. 
+        Plain Legal Format (Concise)
+        Answer the question concisely and then clearly state the legal information, citing the provided documents.
+        Include relevant external references if they apply. Use precise, professional language suitable for a legal context, but keep it direct and succinct.
+        Answer this again if another language has been requested and answer in that language.
 
-        User request: {user_input}
+        8th-Grade Reading Level Explanation
+        Translate the above legal points into simpler language, at roughly an 8th-grade level.
+        Explain or define any US‐specific terms, practices, or norms.
+        Use short, clear sentences that are easily understood by someone with limited background in US law.
+        Answer this again if another language has been requested and answer in that language.
+
+        Warnings
+        Do not include flowery or overly lengthy wording. Stay focused on clarity.
+        Verify the correctness of legal references and citations.
+        Do not assume the reader knows US cultural or legal norms; define or clarify as needed.
+        Remember that this is informational only—include a disclaimer that formal legal counsel may be necessary.: {user_input}
         """
     )
     return response.text
