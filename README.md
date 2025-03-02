@@ -1,5 +1,5 @@
-# Migrant-Legal-Document-Assistant
-This is a project created by @oliverrexx and @zzithu. Sponsored by Hacking Injustice Hackathon.
+# Migrant-Legal-Document-Companion
+This is a project created by @oliverrexx and @zzithu. Sponsored by Hacking Injustice Hackathon. https://engineeringhope.org/
 
 
 
